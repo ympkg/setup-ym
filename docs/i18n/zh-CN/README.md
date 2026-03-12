@@ -1,31 +1,31 @@
 <h1 align="center">setup-ym</h1>
 
 <p align="center">
-  <strong>GitHub Action to install <a href="https://github.com/ympkg/yummy">ym</a></strong><br>
-  Auto platform detection · Version pinning · Binary caching
+  <strong>安装 <a href="https://github.com/ympkg/yummy">ym</a> 的 GitHub Action</strong><br>
+  自动平台检测 · 版本锁定 · 二进制缓存
 </p>
 
 <p align="center">
   <a href="https://github.com/ympkg/setup-ym"><img src="https://img.shields.io/github/v/tag/ympkg/setup-ym?label=action" alt="Action version" /></a>
   <a href="https://github.com/ympkg/yummy/releases"><img src="https://img.shields.io/github/v/release/ympkg/yummy?include_prereleases&label=ym" alt="ym version" /></a>
-  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License" /></a>
+  <a href="../../../LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License" /></a>
 </p>
 
 <p align="center">
-  <a href="#usage">Usage</a> ·
-  <a href="#inputs">Inputs</a> ·
-  <a href="#outputs">Outputs</a> ·
-  <a href="#examples">Examples</a> ·
-  <a href="#platforms">Platforms</a>
+  <a href="#用法">用法</a> ·
+  <a href="#输入参数">输入参数</a> ·
+  <a href="#输出">输出</a> ·
+  <a href="#示例">示例</a> ·
+  <a href="#支持平台">支持平台</a>
 </p>
 
 <p align="center">
-  🌐 <a href="README.md">English</a> · <a href="docs/i18n/zh-CN/README.md">简体中文</a>
+  🌐 <a href="../../../README.md">English</a> · <a href="README.md">简体中文</a>
 </p>
 
 ---
 
-## Usage
+## 用法
 
 ```yaml
 steps:
@@ -38,23 +38,23 @@ steps:
   - run: ymc build
 ```
 
-## Inputs
+## 输入参数
 
-| Name | Default | Description |
-|------|---------|-------------|
-| `version` | `latest` | ym version — `latest`, `dev`, or specific (e.g. `0.6.0`) |
-| `cache` | `true` | Cache ym binary across workflow runs |
+| 名称 | 默认值 | 说明 |
+|------|--------|------|
+| `version` | `latest` | ym 版本 — `latest`、`dev` 或指定版本（如 `0.6.0`） |
+| `cache` | `true` | 跨工作流缓存 ym 二进制 |
 
-## Outputs
+## 输出
 
-| Name | Description |
-|------|-------------|
-| `ym-version` | The version that was installed |
-| `ym-path` | Path to the directory containing `ym` / `ymc` |
+| 名称 | 说明 |
+|------|------|
+| `ym-version` | 安装的版本号 |
+| `ym-path` | `ym` / `ymc` 所在目录路径 |
 
-## Examples
+## 示例
 
-### Basic — build a project
+### 基础 — 编译项目
 
 ```yaml
 name: Build
@@ -73,7 +73,7 @@ jobs:
       - run: ymc build
 ```
 
-### Pin a specific version
+### 锁定版本
 
 ```yaml
 - uses: ympkg/setup-ym@v1
@@ -81,7 +81,7 @@ jobs:
     version: '0.6.0'
 ```
 
-### Use dev channel
+### 使用 dev 通道
 
 ```yaml
 - uses: ympkg/setup-ym@v1
@@ -89,7 +89,7 @@ jobs:
     version: dev
 ```
 
-### Build + test + Docker
+### 编译 + 测试 + Docker
 
 ```yaml
 name: CI
@@ -116,7 +116,7 @@ jobs:
           tags: myapp:latest
 ```
 
-### Private Maven registry
+### 私有 Maven 仓库
 
 ```yaml
 - run: ymc build
@@ -125,30 +125,30 @@ jobs:
     YM_REGISTRY_PASSWORD: ${{ secrets.MAVEN_PASSWORD }}
 ```
 
-### Workspace — build a specific module
+### 工作空间 — 编译指定模块
 
 ```yaml
 - run: ymc build my-service
 ```
 
-## Platforms
+## 支持平台
 
-| Runner | Target | Archive |
-|--------|--------|---------|
+| Runner | Target | 归档格式 |
+|--------|--------|----------|
 | `ubuntu-latest` | `x86_64-unknown-linux-gnu` | `.tar.gz` |
 | `windows-latest` | `x86_64-pc-windows-msvc` | `.zip` |
 | `macos-latest` | `aarch64-apple-darwin` | `.tar.gz` |
 | `macos-13` | `x86_64-apple-darwin` | `.tar.gz` |
 
-## How it works
+## 工作原理
 
-1. Detects runner OS and architecture
-2. Resolves the requested version from [GitHub Releases](https://github.com/ympkg/yummy/releases)
-3. Restores from cache if available (keyed by version + platform)
-4. Downloads and extracts the binary to `~/.ym/bin`
-5. Copies `ym` → `ymc` (same binary, behavior determined by `argv[0]`)
-6. Adds `~/.ym/bin` to `$GITHUB_PATH`
+1. 检测 Runner 操作系统和架构
+2. 从 [GitHub Releases](https://github.com/ympkg/yummy/releases) 解析目标版本
+3. 检查缓存（按版本 + 平台 key）
+4. 下载并解压二进制到 `~/.ym/bin`
+5. 复制 `ym` → `ymc`（同一二进制，通过 `argv[0]` 区分行为）
+6. 将 `~/.ym/bin` 加入 `$GITHUB_PATH`
 
-## License
+## 许可证
 
-[MIT](LICENSE)
+[MIT](../../../LICENSE)
