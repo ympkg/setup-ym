@@ -57,7 +57,7 @@ runs:
 
     - name: Cache ym binary
       if: inputs.cache == 'true'
-      uses: actions/cache@v4
+      uses: actions/cache@v5
       with:
         path: ~/.ym/bin
         key: ym-${{ steps.resolve.outputs.version }}-${{ steps.platform.outputs.target }}
