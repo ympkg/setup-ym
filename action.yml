@@ -6,7 +6,7 @@ branding:
 
 inputs:
   version:
-    description: 'ym version to install (latest, dev, or specific version like 0.6.0)'
+    description: 'ym version to install (latest, dev, or specific version like 0.3.10)'
     required: false
     default: 'latest'
   cache:

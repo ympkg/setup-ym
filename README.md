@@ -78,7 +78,7 @@ jobs:
 ```yaml
 - uses: ympkg/setup-ym@v1
   with:
-    version: '0.6.0'
+    version: '0.3.10'
 ```
 
 ### Use dev channel
