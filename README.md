@@ -135,7 +135,7 @@ jobs:
 
 | Runner | Target | Archive |
 |--------|--------|---------|
-| `ubuntu-latest` | `x86_64-unknown-linux-gnu` | `.tar.gz` |
+| `ubuntu-latest` | `x86_64-unknown-linux-musl` | `.tar.gz` |
 | `windows-latest` | `x86_64-pc-windows-msvc` | `.zip` |
 | `macos-latest` | `aarch64-apple-darwin` | `.tar.gz` |
 | `macos-13` | `x86_64-apple-darwin` | `.tar.gz` |
