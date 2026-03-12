@@ -33,7 +33,7 @@ steps:
   - uses: actions/setup-java@v4
     with:
       distribution: zulu
-      java-version: '21'
+      java-version: '25'
   - uses: ympkg/setup-ym@v1
   - run: ymc build
 ```
@@ -68,7 +68,7 @@ jobs:
       - uses: actions/setup-java@v4
         with:
           distribution: zulu
-          java-version: '21'
+          java-version: '25'
       - uses: ympkg/setup-ym@v1
       - run: ymc build
 ```
@@ -103,7 +103,7 @@ jobs:
       - uses: actions/setup-java@v4
         with:
           distribution: zulu
-          java-version: '21'
+          java-version: '25'
       - uses: ympkg/setup-ym@v1
 
       - run: ymc build
